@@ -1,0 +1,860 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Header styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-logo span {
+  color: #ff6b6b;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: #ff6b6b;
+}
+
+.logout-btn {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #ff4d4d;
+}
+
+/* Main content styles */
+main {
+  margin-top: 60px;
+  padding: 20px;
+}
+
+section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+section.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Search bar styles */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+}
+
+.search-btn {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #ff4d4d;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #ff6b6b;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#bookAppointmentModal {
+  display: none;
+}
+
+/* CSS */
+#provider-card-container,
+#search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #555555;
+}
+
+.provider-cards .rating-form {
+  margin-top: 10px;
+}
+
+.provider-cards .rating-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.provider-cards .rating-form input[type="number"] {
+  width: 100px;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.provider-cards .rating-form input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff; /* Blue */
+}
+
+.provider-cards .rating-form button[type="submit"] {
+  padding: 8px 16px;
+  margin-left: 20px;
+  background-color: #007bff; /* Blue */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.provider-cards .rating-form button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue */
+}
+
+/* Add space between search result cards and provider cards */
+#search-results {
+  margin-bottom: 40px;
+}
+
+/* Provider card styles */
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.6rem;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #666666;
+}
+
+/* Provider card buttons styles */
+.message-provider-btn,
+.book-appointment-btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.message-provider-btn:hover {
+  background-color: #45a049; /* Darker Green */
+}
+
+.book-appointment-btn {
+  background-image: linear-gradient(to right, #ffc107, #ff9800);
+  background-size: 200% 100%;
+  animation: gradient-animation 5s ease-in-out infinite alternate;
+  color: #fff; /* White text for better contrast */
+  padding: 10px 25px; /* Adjust padding as needed */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Indicate interactivity */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.book-appointment-btn:hover {
+  opacity: 0.9; /* Slightly reduce opacity on hover */
+}
+
+/* Adjust spacing between buttons */
+.card-body button:last-child {
+  margin-right: 0;
+}
+
+/* Modal styles */
+#bookAppointmentModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content styles */
+.modal-content {
+  background-color: #fefefe;
+  /* margin: 15% auto; */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+animation-duration: 0.4s;
+}
+
+/* Modal header styles */
+.modal-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Modal title styles */
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Modal body styles */
+.modal-body {
+  padding: 30px;
+}
+
+/* Form styles */
+#bookAppointmentForm {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Form input styles */
+#bookAppointmentForm input[type="text"],
+#bookAppointmentForm textarea,
+#bookAppointmentForm select {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  display: block; /* Display inputs as block elements */
+}
+
+/* Submit button styles */
+#bookAppointmentForm button[type="submit"] {
+  background-image: linear-gradient(to right, #ffc107, #ff9800);
+  background-size: 200% 100%;
+  animation: gradient-animation 5s ease-in-out infinite alternate;
+  color: #fff;
+  padding: 14px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Submit button hover effect */
+#bookAppointmentForm button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+/* Form label styles */
+#bookAppointmentForm label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Form fieldset styles */
+#bookAppointmentForm fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Form legend styles */
+#bookAppointmentForm legend {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Close button styles */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Animation styles */
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* Modal styles */
+#bookAppointmentModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal content styles */
+.modal-content {
+  background-color: #fefefe;
+  margin: 1% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  position: relative;
+}
+
+/* Close button styles */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Form field container */
+#bookAppointmentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Form field animation */
+#bookAppointmentForm input,
+#bookAppointmentForm textarea {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fieldAnimation 0.5s ease forwards;
+}
+
+@keyframes fieldAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered field animation */
+#bookAppointmentForm input:nth-child(2),
+#bookAppointmentForm textarea:nth-child(4) {
+  animation-delay: 0s;
+}
+
+#bookAppointmentForm input:nth-child(3),
+#bookAppointmentForm textarea:nth-child(5) {
+  animation-delay: 0.1s;
+}
+
+#bookAppointmentForm input:nth-child(4),
+#bookAppointmentForm input:nth-child(6),
+#bookAppointmentForm input:nth-child(7),
+#bookAppointmentForm input:nth-child(8) {
+  animation-delay: 0.2s;
+}
+
+/* Form field styles */
+#bookAppointmentForm input,
+#bookAppointmentForm textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+#bookAppointmentForm input:focus,
+#bookAppointmentForm textarea:focus {
+  outline: none;
+  border-color: #ff9800;
+}
+
+/* Form field label styles */
+/* #bookAppointmentForm input::placeholder,
+#bookAppointmentForm textarea::placeholder {
+  font-size: 14px;
+  color: #666;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  background-color: #fff;
+  padding: 0 5px;
+  transition: all 0.3s ease;
+} */
+
+/* #bookAppointmentForm input:focus::placeholder,
+#bookAppointmentForm textarea:focus::placeholder {
+  color: #ff9800;
+  transform: translateY(-30px);
+} */
+
+/* Submit button styles */
+.book-btn {
+  background-image: linear-gradient(to right, #ffc107, #ff9800);
+  background-size: 200% 100%;
+  animation: gradient-animation 5s ease-in-out infinite alternate;
+  color: #fff;
+  padding: 14px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.book-btn:hover {
+  opacity: 0.9;
+}
+
+/* Create Task Section */
+#create-task {
+  background-color: #f8f8f8;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#create-task h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+#create-task-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#create-task-form input[type="text"],
+#create-task-form input[type="number"],
+#create-task-form textarea,
+#create-task-form select {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+#create-task-form input[type="text"]:focus,
+#create-task-form input[type="number"]:focus,
+#create-task-form textarea:focus,
+#create-task-form select:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#create-task-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#create-task-form select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+}
+
+/* Submit Button Styles */
+.create-btn {
+  background-image: linear-gradient(to right, #ff6b6b, #ff9f43);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.create-btn:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.create-btn:hover:before {
+  width: 200%;
+  height: 200%;
+}
+
+.create-btn:hover {
+  background-position: right center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation */
+#create-task-form input[type="text"],
+#create-task-form textarea,
+#create-task-form select,
+#create-task-form input[type="number"],
+.create-btn {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons */
+.update-task-btn,
+.delete-task-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1;
+}
+
+.update-task-btn {
+  background-color: #4CAF50;
+}
+
+.delete-task-btn {
+  background-color: #f44336;
+}
+
+.update-task-btn::before,
+.delete-task-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.update-task-btn:hover::before,
+.delete-task-btn:hover::before {
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+.update-task-btn:hover,
+.delete-task-btn:hover {
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Table Rows */
+#tasks-table-body tr,
+#messages-table-body tr {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease;
+}
+
+#tasks-table-body tr:hover,
+#messages-table-body tr:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mark as Read Button */
+.mark-as-read-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2196f3;
+  z-index: 1;
+}
+
+.mark-as-read-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.mark-as-read-btn:hover::before {
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+.mark-as-read-btn:hover {
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Message Content */
+#messages-table-body td:nth-child(2) {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,468 @@
+/* Hide main content initially */
+main {
+    visibility: hidden;
+}
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Updated background color */
+    color: #333; /* Updated text color */
+    overflow: hidden; /* Hide overflow until loader is hidden */
+}
+
+/* Loader */
+.loader-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Ensure the loader is above other elements */
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #9370db; /* Purple lavender color */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9370db; /* Purple lavender color */
+    color: #fff;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar-brand a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar-menu li {
+    margin-left: 1rem;
+}
+
+.navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover,
+.navbar-menu a.active {
+    color: #191970;
+}
+
+/* Log Out Link */
+#logout-btn {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ff5f5f; /* Red color, you can adjust as needed */
+    transition: background-color 0.3s ease;
+}
+
+#logout-btn:hover {
+    background-color: #e53e3e; /* Darker red on hover */
+}
+
+
+/* Section styles */
+.section {
+    display: none;
+    padding: 2rem;
+}
+
+.section.active {
+    display: block;
+    animation: fadeIn 0.5s ease forwards; /* Added animation */
+}
+
+.section-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #9370db; /* Purple lavender color */
+}
+
+/* Card styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    width: calc(33.33% - 1rem);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Table styles */
+.tasks-table,
+.messages-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tasks-table th,
+.tasks-table td,
+.messages-table th,
+.messages-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tasks-table th,
+.messages-table th {
+    background-color: #9370db; /* Purple lavender color */
+    color: #fff;
+}
+
+/* Form styles */
+.create-task-form {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.create-task-form h3 {
+    margin-bottom: 1rem;
+}
+
+.create-task-form input,
+.create-task-form textarea,
+.create-task-form select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+}
+
+.create-task-form button {
+    background-color: #9370db; /* Purple lavender color */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-task-form button:hover {
+    background-color: #7d63ab; /* Updated button hover color */
+}
+
+/* Search bar styles */
+.search-bar {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.search-bar button {
+    background-color: #9370db; /* Purple lavender color */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0 0.25rem 0.25rem 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #7d63ab; /* Updated button hover color */
+}
+
+/* Animations and effects */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Custom styles for appointment request cards */
+.appointment-request-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.appointment-request-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom styles for appointment cards */
+.appointment-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Conditional background colors based on appointment status */
+.appointment-card.accepted {
+    background-color: #28a745; /* Green */
+}
+
+.appointment-card.rejected {
+    background-color: #dc3545; /* Red */
+}
+
+.appointment-card.pending {
+    background-color: #ffc107; /* Yellow */
+}
+
+
+/* Add more custom styles for other types of cards as needed */
+/* CSS for accept button */
+.accept-btn {
+    background-color: #28a745; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .accept-btn:hover {
+    background-color: #218838; /* Darker green */
+  }
+  
+  /* CSS for reject button */
+  .reject-btn {
+    background-color: #dc3545; /* Red */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .reject-btn:hover {
+    background-color: #c82333; /* Darker red */
+  }
+  
+  /* Update and delete buttons */
+.btn.update-task-btn,
+.btn.delete-task-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn.update-task-btn:hover,
+.btn.delete-task-btn:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.btn.delete-task-btn {
+    background-color: #f44336; /* Red */
+}
+
+.btn.update-task-btn {
+    background-color: #008CBA; /* Blue */
+}
+
+/* Mark as Read button */
+.btn.mark-as-read-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: #007bff; /* Blue */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.btn.mark-as-read-btn:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.btn.mark-as-read-btn[aria-hidden="true"] {
+    display: none; /* Hide the button if aria-hidden attribute is true */
+}
+
+/* Provider Card */
+.provider-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.provider-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.provider-card .card-title {
+    font-size: large;
+    color: #333;
+    font-weight: bold;
+}
+
+.provider-card .divider {
+    border-top: 1px solid #ddd;
+}
+
+.provider-card .card-text {
+    color: #666;
+}
+
+.provider-card .rating-form {
+    margin-top: 10px;
+}
+
+.provider-card .rating-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.provider-card .rating-form input[type="number"] {
+    width: 100px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.provider-card .rating-form input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff; /* Blue */
+}
+
+.provider-card .rating-form button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #007bff; /* Blue */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.provider-card .rating-form button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.provider-card .message-provider-btn {
+    padding: 8px 16px;
+    background-color: #28a745; /* Green */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.provider-card .message-provider-btn:hover {
+    background-color: #218838; /* Darker green */
+}
+
+/* Rating Card */
+.rating-card {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.rating-card .card-title {
+    color: #333;
+    font-weight: bold;
+}
+
+.rating-card .card-text {
+    color: #666;
+}
+
+.rating-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}

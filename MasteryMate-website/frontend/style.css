@@ -1,0 +1,12 @@
+#header-partial {
+    display: flex;
+    justify-content: space-between; /* Align items at the ends */
+    align-items: center;
+    padding: 10px 20px; /* Add padding for spacing */
+    background-color: #f8f9fa; /* Background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+#logout-btn {
+    margin-left: auto; /* Push the button to the right */
+}

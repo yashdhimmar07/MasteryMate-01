@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard</title>
+  <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <a href="#">Customer<span>Dash</span></a>
+      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link active" data-section="dashboard">Dashboard</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" data-section="my-tasks">My Tasks</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" data-section="create-task">Create Task</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" data-section="messages">Messages</a></li>
+        <!-- <li class="nav-item"><a href="#" class="nav-link" data-section="providers">Providers</a></li> -->
+        <li class="nav-item"><button id="logout-btn" class="logout-btn">Log Out</button></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="dashboard" class="active">
+      <!-- Dashboard Content -->
+      <div class="search-bar">
+        <input type="text" id="search-provider-input" placeholder="Search near your location...">
+        <button id="search-provider-btn" class="search-btn">Search</button>
+      </div>
+      <!-- HTML -->
+<div id="search-results" class="row justify-content-center"></div>
+
+      <div id="provider-card-container" class="provider-cards"></div>
+    </section>
+    <section id="my-tasks">
+      <!-- My Tasks Content -->
+      <h2>My Tasks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Budget</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tasks-table-body"></tbody>
+      </table>
+    </section>
+    <section id="create-task">
+      <!-- Create Task Content -->
+      <h2>Create New Task</h2>
+      <form id="create-task-form">
+        <input type="text" id="create-task-title" placeholder="Enter task title">
+        <textarea id="create-task-description" placeholder="Enter task description"></textarea>
+        <select id="create-task-category">
+          <option value="Plumbing">Plumbing</option>
+          <option value="Electrical">Electrical</option>
+          <option value="Carpentry">Carpentry</option>
+          <option value="Cleaning">Cleaning</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="number" id="create-task-budget" placeholder="Enter task budget">
+        <button type="submit" class="create-btn">Create Task</button>
+      </form>
+    </section>
+    <section id="messages">
+      <!-- Messages Content -->
+      <h2>My Messages</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Sender</th>
+            <th>Status</th>
+            <th>Content</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="messages-table-body"></tbody>
+      </table>
+    </section>
+    <section id="providers">
+      <!-- Providers Content -->
+      <h2>Providers</h2>
+      <div id="provider-card-container" class="provider-cards"></div>
+    </section>
+    <!-- Modal for Booking Appointment -->
+    <div id="bookAppointmentModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>Book Appointment</h3>
+        <form id="bookAppointmentForm">
+          <input type="hidden" id="appointment-provider-id" name="providerId">
+          <input type="text" id="appointment-customer-name" placeholder="Enter your name" required>
+          <input type="text" id="appointment-title" placeholder="Enter task title" required>
+          <textarea id="appointment-description" placeholder="Enter task description" required></textarea>
+          <input type="text" id="appointment-location" placeholder="Enter your location" required>
+          <input type="date" id="appointment-date" required>
+          <input type="time" id="appointment-time" required>
+          <input type="number" id="appointment-budget" placeholder="Enter task budget" required>
+          <button type="submit" class="book-btn">Book Appointment</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <!-- <script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "H7xxrs0jAupRxOHJDcFm-",
+    domain: "www.chatbase.co"
+    }
+    </script>
+    <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="H7xxrs0jAupRxOHJDcFm-"
+    domain="www.chatbase.co"
+    defer>
+    </script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="customer.js"></script>
+</body>
+</html>
